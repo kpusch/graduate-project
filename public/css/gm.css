@@ -1,0 +1,149 @@
+@CHARSET "UTF-8";
+@import url('http://fonts.googleapis.com/earlyaccess/nanumgothic.css');
+
+html, body, h1, h2, h3, h4, h5, h6, li, p {font-family:'Nanum Gothic';}
+
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+    margin:0;
+    padding:0;
+    border:0;
+    outline:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+
+body {
+    line-height:1;
+}
+
+article,aside,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section { 
+    display:block;
+}
+
+nav ul {
+    list-style:none;
+}
+
+blockquote, q {
+    quotes:none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content:'';
+    content:none;
+}
+
+a {
+    margin:0;
+    padding:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+
+<!-- change colours to suit your needs -->
+ins {
+    background-color:#ff9;
+    color:#000;
+    text-decoration:none;
+}
+
+<!-- change colours to suit your needs -->
+mark {
+    background-color:#ff9;
+    color:#000; 
+    font-style:italic;
+    font-weight:bold;
+}
+
+del {
+    text-decoration: line-through;
+}
+
+abbr[title], dfn[title] {
+    border-bottom:1px dotted;
+    cursor:help;
+}
+
+table {
+    border-collapse:collapse;
+    border-spacing:0;
+    font-size:100px
+}
+
+<!-- change border colour to suit your needs */ -->
+hr {
+    display:block;
+    height:1px;
+    border:0;   
+    border-top:1px solid #cccccc;
+    margin:1em 0;
+    padding:0;
+}
+
+input, select {
+    vertical-align:middle;
+}
+
+
+/*면접전체화면*/
+.room{width:100%;height:100%;min-height:860px;cursor:default;font-size:14px}
+.room [data-pointer-events-none="true"]{pointer-events:none}
+.room-wrapper{width:100%;height:100%;min-height:860px;background-color:#fff}
+
+
+/*화면의 왼쪽 캔버스부분*/
+
+.room-menu{position:absolute;left:0;top:0;z-index:0;vertical-align:top;width:40%;min-width:60px;height:inherit;min-height:inherit; }
+
+/*캔버스부분의 하단 부분*/
+.room-menu .room-menu-footer{margin:0;padding:0;width:100%; height:8.8%; float:right; text-align:right; background-color:#0cf; border-width:1px; }
+.room-menu .room-menu-footer{position:absolute;bottom:0}
+ 
+ /*
+.room [data-menu="exit"]{background-position:0 -150px;height:7%}
+.room [data-menu="exit"]:hover{background-position:-60px -150px !important}
+*/
+ 
+ 
+ .bo-detail1{width:100%;height:85%;display:inline-block;text-align:left; border:1px solid;
+         border-width:1px; }
+.bo-list-row{padding:2%}
+.bo-list-row li{padding:1%}
+ 
+ 
+ 
+ .room-main{position:relative;left:40%;top:0;width:calc(100% - 40%);height:860px;;overflow-x:hidden}
+ .room-main-top{position:absolute;left:0;top:0;z-index:3;width:100%;height:50px;background-color:#4f4e5c;transition:.4s;color:#fff}
+ 
+ 
+ 
+  
+ .room-main-top {display:inline-block;box-sizing:border-box;width:100%;padding:15px;font-size:20px;vertical-align:middle; text-align:center;}
+
+.room-con{margin:0;padding:0;width:100%; height:100%; float:right; text-align:right; background-color:black; }
+.con1{margin:0;padding:0;width:50%; height:50%; float:left; text-align:center;  }
+.con2{margin:0;padding:0;width:50%; height:50%; float:right; text-align:center;  }
+.con3{margin:0;padding:0;width:50%; height:50%; float:left; text-align:center;  }
+.con4{margin:0;padding:0;width:50%; height:50%; float:right; text-align:center;  }
+
+
+
+.con1, .con2, .con3, .con4 {  color: #ffffff}
+
+
+

@@ -1,0 +1,245 @@
+@CHARSET "UTF-8";
+@import url('http://fonts.googleapis.com/earlyaccess/nanumgothic.css');
+
+html, body, h1, h2, h3, h4, h5, h6, li, p {font-family:'Nanum Gothic';}
+
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+    margin:0;
+    padding:0;
+    border:0;
+    outline:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+
+body {
+    line-height:1;
+}
+
+article,aside,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section { 
+    display:block;
+}
+
+nav ul {
+    list-style:none;
+}
+
+blockquote, q {
+    quotes:none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content:'';
+    content:none;
+}
+
+a {
+    margin:0;
+    padding:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+
+<!-- change colours to suit your needs -->
+ins {
+    background-color:#ff9;
+    color:#000;
+    text-decoration:none;
+}
+
+<!-- change colours to suit your needs -->
+mark {
+    background-color:#ff9;
+    color:#000; 
+    font-style:italic;
+    font-weight:bold;
+}
+
+del {
+    text-decoration: line-through;
+}
+
+abbr[title], dfn[title] {
+    border-bottom:1px dotted;
+    cursor:help;
+}
+
+table {
+    border-collapse:collapse;
+    border-spacing:0;
+    font-size:100px
+}
+
+<!-- change border colour to suit your needs */ -->
+hr {
+    display:block;
+    height:1px;
+    border:0;   
+    border-top:1px solid #cccccc;
+    margin:1em 0;
+    padding:0;
+}
+
+input, select {
+    vertical-align:middle;
+}
+
+
+/*화면 전체 영역*/
+.room{width:100%;min-height:800px;cursor:default;font-size:20px}
+
+.room [data-pointer-events-none="true"]{pointer-events:none}
+.room-wrapper{width:100%;min-height:800px;background-color:#fff}
+
+/*왼쪽 캔버스 영역*/
+.room-menu{position:absolute;left:0;top:0;z-index:0;vertical-align:top;width:30%;min-width:60px;height:inherit;min-height:inherit; }
+
+/*캔버스 그리는 부분*/ 
+ .bo-detail1{width:100%;height:88%;display:inline-block;text-align:left; border:1px solid;border-width:1px; }
+
+  /*가운데 영상 영역*/
+ .room-main{position:relative; left:30%;top:0; width:40%;height:930px; overflow-x:hidden}
+ 
+  /*상단 메뉴바*/
+ .room-main-top{position:relative;left:0;top:0;z-index:3;width:100%;height:100px;background-color:#4f4e5c;transition:.4s;color:#fff}  
+ .room-main-top .bu{position:absolute;left:0;top:0;z-index:3;width:50%;height:50px;background-color:#4f4e5c;transition:.4s;color:#fff}  
+ .room-main-top .bu{display:inline-block;box-sizing:border-box;width:50%;padding:15px;font-size:20px;vertical-align:middle; text-align:left;}
+
+/*메뉴바 영역 분활*/
+.room-main-top .ti{position:absolute;left:50%;top:0;z-index:3;width:50%;height:50px;background-color:#4f4e5c;transition:.4s;color:#fff}  
+ .room-main-top .ti{display:inline-block;box-sizing:border-box;width:50%;padding:15px;font-size:20px;vertical-align:middle; text-align:left;}
+
+/*영상 부분*/
+.room-con{margin:0;padding:0;width:100%; height:100%; float:right; text-align:right; background-color:black; }
+.con1{margin:0;padding:0;width:50%; height:50%; float:left; text-align:center;  }
+.con2{margin:0;padding:0;width:50%; height:50%; float:right; text-align:center;  }
+.con3{margin:0;padding:0;width:50%; height:50%; float:left; text-align:center;  }
+.con4{margin:0;padding:0;width:50%; height:50%; float:right; text-align:center;  }
+.con1, .con2, .con3, .con4 {color: #ffffff}
+
+/*오른쪽 영역*/
+.room-right-side{box-shadow:none;border-left:1px solid #c6c6c6}
+.room-right-side{position:absolute; left:70%;top:0;z-index:3;width:30%;height:930px; overflow:hidden;  background-color:#c6c6c6;}
+
+/*타이머 설정 부분*/
+.settimer{}
+
+div.clock{float:left;}
+input.c1{font-size: 40px;border: 1px;}
+input.c2 {margin-top: 2px; margin-left: 2px;margin-right: 2px;font-size: 18px;}
+
+/*아이콘 마우스 오버 시 색깔 변환*/
+.room-main .room-main-top .bu .bg1 { background-color:white; }
+.room-main .room-main-top .bu .bg2 { background-color:#4f4e5c; }
+
+
+
+/*캔버스 영역 버튼 설정 */
+
+.makebu1 {
+	-moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #dfdfdf) );
+	background:-moz-linear-gradient( center top, #ededed 5%, #dfdfdf 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#dfdfdf');
+	background-color:#ededed;
+	-webkit-border-top-left-radius:8px;
+	-moz-border-radius-topleft:8px;
+	border-top-left-radius:8px;
+	-webkit-border-top-right-radius:8px;
+	-moz-border-radius-topright:8px;
+	border-top-right-radius:8px;
+	-webkit-border-bottom-right-radius:8px;
+	-moz-border-radius-bottomright:8px;
+	border-bottom-right-radius:8px;
+	-webkit-border-bottom-left-radius:8px;
+	-moz-border-radius-bottomleft:8px;
+	border-bottom-left-radius:8px;
+	text-indent:1px;
+	border:1px solid #dcdcdc;
+	display:inline-block;
+	color:#777777;
+	font-family:Comic Sans MS;
+	font-size:15px;
+	font-weight:bold;
+	font-style:normal;
+	height:32px;
+	line-height:32px;
+	width:87px;
+	text-decoration:none;
+	text-align:center;
+	text-shadow:1px 1px 0px #ffffff;
+}
+.makebu1:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #dfdfdf), color-stop(1, #ededed) );
+	background:-moz-linear-gradient( center top, #dfdfdf 5%, #ededed 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#dfdfdf', endColorstr='#ededed');
+	background-color:#dfdfdf;
+}.makebu1:active {
+	position:relative;
+	top:1px;
+}
+
+
+/*상단 타이머 버튼 설정 */
+.makebu2 {
+	-moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #dfdfdf) );
+	background:-moz-linear-gradient( center top, #ededed 5%, #dfdfdf 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#dfdfdf');
+	background-color:#ededed;
+	-webkit-border-top-left-radius:8px;
+	-moz-border-radius-topleft:8px;
+	border-top-left-radius:8px;
+	-webkit-border-top-right-radius:8px;
+	-moz-border-radius-topright:8px;
+	border-top-right-radius:8px;
+	-webkit-border-bottom-right-radius:8px;
+	-moz-border-radius-bottomright:8px;
+	border-bottom-right-radius:8px;
+	-webkit-border-bottom-left-radius:8px;
+	-moz-border-radius-bottomleft:8px;
+	border-bottom-left-radius:8px;
+	text-indent:1px;
+	border:1px solid #dcdcdc;
+	display:inline-block;
+	color:#777777;
+	font-family:Comic Sans MS;
+	font-size:14px;
+	font-weight:bold;
+	font-style:normal;
+	height:30px;
+	line-height:32px;
+	width:45px;
+	text-decoration:none;
+	text-align:center;
+	text-shadow:1px 1px 0px #ffffff;
+}
+.makebu1:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #dfdfdf), color-stop(1, #ededed) );
+	background:-moz-linear-gradient( center top, #dfdfdf 5%, #ededed 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#dfdfdf', endColorstr='#ededed');
+	background-color:#dfdfdf;
+}.makebu1:active {
+	position:relative;
+	top:1px;
+}
+

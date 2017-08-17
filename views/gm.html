@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=unicode" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="user-scalable=no, width=device-width, height=device-height, initial-scale=1, maximum-scale=1">
+
+
+<script type="text/javascript" src="css/canvas/canvas.js"></script>
+
+
+<script type="text/javascript" src="css/css/sh_canvas.js"></script>
+<script type="text/javascript"  src="css/css/Timer.js"></script>
+
+<script type="text/javascript"  src="css/css/BandwidthHandler.js"></script>
+<script type="text/javascript"  src="css/css/screen.js"></script>
+<script type="text/javascript"  src="css/css/getScreenId.js"></script>
+ 
+<script type="text/javascript"  src="css/css/firebase.js"></script>
+
+
+
+        <style>
+            video {
+                -moz-transition: all 1s ease;
+                -ms-transition: all 1s ease;
+                -o-transition: all 1s ease;
+                -webkit-transition: all 1s ease;
+                transition: all 1s ease;
+                vertical-align: top;
+                width: 260px;   /* 260px */
+                height: 200px;  /* 200px */
+            }
+            /*
+            input {
+                border: 1px solid #d9d9d9;
+                border-radius: 1px;
+                font-size: 2em;
+                margin: .2em;
+                width: 30%;
+            }
+            select {
+                border: 1px solid #d9d9d9;
+                border-radius: 1px;
+                height: 50px;
+                margin-left: 1em;
+                margin-right: -12px;
+                padding: 1.1em;
+                vertical-align: 6px;
+                width: 18%;
+            }
+            .setup {
+                border-bottom-left-radius: 0;
+                border-top-left-radius: 0;
+                font-size: 102%;
+                height: 47px;
+                margin-left: -9px;
+                margin-top: 8px;
+                position: absolute;
+            }
+            p { padding: 1em; }
+            li {
+                border-bottom: 1px solid rgb(189, 189, 189);
+                border-left: 1px solid rgb(189, 189, 189);
+                padding: .5em;
+            }*/
+
+            
+            
+        </style>
+
+
+
+
+
+
+
+<link rel="stylesheet" type="text/css" href="css/css/gm2.css"/> <!-- CSS속성적용 --> 
+<link rel="stylesheet" type="text/css" href="css/canvas/gm4.css"/> 
+
+<title>사이트 주소</title>
+
+
+</head>
+<body>
+
+
+
+<!-- 화면 전체 레이아웃 -->
+<div class="room" data-room-mode="call" data-user-screenshare="false" data-right-side-on="false" data-subvideo-direction="0">
+<div class="room-wrapper">
+
+<!-- 왼쪽 레이아웃 -->
+<!-- <div class="room-menu">
+<div class="bo-detail1">
+ <div class="canv">
+ <canvas id="canvas" width="600" height="800">
+</canvas>
+</div>
+<br/>
+<div style="border-top:1px solid gray">
+
+<input type="file" id="loadImg" >
+
+
+
+<br/>mode : <span id="mode" ></span><br/>
+
+<a href="#" onclick="changeMode(0)" class="makebu1">Pen</a>
+<a href="#" onclick="changeMode(1)" class="makebu1">Line</a>
+<a href="#" onclick="changeMode(2)" class="makebu1">Rect</a>
+<a href="#" onclick="ccan()" class="makebu1">Delete</a>
+<a href="#" onclick="save()" class="makebu1">Save</a>
+
+
+ </div>
+ </div>
+</div> -->
+
+<div class="room-menu">
+<div class="bo-detail1">
+  <canvas id="canvas" width="450" height="650" style="border:solid 3px #CCC;"></canvas>
+ 
+<br/>
+
+<script type="text/javascript">
+  function handleImageView(files){    
+    var file = files[0];
+ 
+    if(!file.type.match(/image.*/)){
+      alert("not image file!");
+    }     
+    var reader = new FileReader();
+    
+    reader.onload = function(e){
+      var img = new Image();
+      img.onload = function(){
+        var ctx = document.getElementById("canvas").getContext("2d");
+        ctx.drawImage(img,0,0,450,700);
+      }
+      img.src = e.target.result;
+    }
+    reader.readAsDataURL(file);
+  }
+ </script>
+ <input type="file" id="loadImg" onchange="handleImageView(this.files)">
+<div style="border-top:1px solid gray">
+
+<br/>mode : <span id="mode" ></span><br/>
+
+<a href="#" onclick="changeMode(0)" class="makebu1">Pen</a>
+<a href="#" onclick="changeMode(1)" class="makebu1">Line</a>
+<a href="#" onclick="changeMode(2)" class="makebu1">Rect</a>
+<a href="#" onclick="ccan()" class="makebu1">Delete</a>
+<a href="#" onclick="save()" class="makebu1">Save</a>
+
+<textarea rows="" cols="" id="data"></textarea>
+ </div>
+ </div>
+</div>
+
+
+<!-- 영상 부분 -->
+<div class="room-main">
+<div class="room-main-top">
+<div class="bu">
+
+<script>function openwin3(){
+        mywin=window.open("http://211.253.24.236/JudgeOnline/problemset.php","","toolbar=yes,width=700,height=600");
+      }</script>
+
+<form>
+      <p>
+      <a href="#"><img src="./css2/com.png" width="50" height="37" onclick="openwin3()"></a>
+      <a href="#"><img src="./css2/screen.png" width="50" height="37"></a>
+      <a href="#"><img src="./css2/mic.png" width="50" height="37"></a>
+      <a href="#"><img src="./css2/sound.png" width="50" height="37"></a>
+       <input type="text" id="room-id">
+                <button id="open-room">방 개설</button>
+                <button id="join-room">들어가기</button>
+
+      </p>
+      </form>
+</div>
+<div class="ti">
+
+<!-- 상단 타이머 기능 -->
+<form name="timeform" action="">
+
+   <div id="clock" >
+      <input name="timeleft" size="5" class="c1" type="text" value="00:00:00" onFocus="clearText(this)" onBlur="clearText(this)" readonly disabled
+         style=color:black style="text-align:center;" >
+</div>
+   <div class="settimer">
+
+      Minute:
+      <input name="minutes" size="1" class="c2" type="text" maxlength="3" value="" onFocus="clearText(this)" onBlur="clearText(this)">
+         
+      <a href="#" onclick="sw_start()" class="makebu2">Start</a>
+      <a href="#" onclick="Stop()" class="makebu2">Stop</a>
+      <a href="#" onclick="Reset()" class="makebu2">Reset</a>       
+   </div>
+</form>
+
+
+</div>
+
+
+
+<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script>
+(function($) {
+
+  $.fn.undoCountdown = function(options) {
+    
+    var defaults = {
+      seconds: 5,
+      term: '취소',
+      showCountdown: true,
+      onComplete: function() { return true; }
+    };
+
+    var settings = $.extend({}, defaults, options);
+
+    return this.each(function() {
+
+      var $button = $(this);
+      var originalContent = $button.html();
+      var seconds = settings.seconds;
+      var term = settings.term;
+      var showCountdown = settings.showCountdown;
+      var interval;
+
+      $button.click(function() {
+        if (interval) {
+          reset();
+        }
+        else {
+          update();
+          start();
+        }
+      });
+
+      function start() {
+        if (!interval) {
+          interval = setInterval(update, 1000);
+        }
+      }
+
+      function reset() {
+        if (interval) {
+          $button.html(originalContent);
+          clearInterval(interval);
+          interval = null;
+          seconds = settings.seconds;
+        }
+      }
+
+      function update() {
+        if (showCountdown) {
+          $button.html(term + " (" + seconds + ")");
+        }
+        else {
+          $button.html(term);
+        }
+
+        if (seconds == 0) {
+          settings.onComplete.call();
+
+          if (interval) {
+            clearInterval(interval);  
+          }
+        } 
+        else {
+          seconds--;
+        }
+      }
+
+    });
+
+  }
+
+}(jQuery));
+
+
+$("#undo").undoCountdown({
+  seconds: 100,    //초 지정
+  onComplete: function() {
+    alert("면접 종료");
+  }
+});
+</script>
+
+</div>
+
+
+<div class="room-con">
+<div class="con1"> 
+
+            <div id="videos-container"></div>
+     
+
+        <script src="/RTCMultiConnection.min.js"></script>
+        <script src="/PubNubConnection.js"></script>
+        <script src="/test.js"></script>
+        <script src="https://cdn.webrtc-experiment.com:443/FileBufferReader.js"></script>
+
+        <script src="https://cdn.webrtc-experiment.com/view/websocket.js"></script>
+
+      
+        <script src="https://cdn.webrtc-experiment.com/commits.js" async></script>
+
+<ul class="bo-list-row">
+            
+        
+        </ul>
+
+
+</div>
+
+
+
+</div>
+</div>
+
+<!-- 채팅 부분  -->
+
+<div class="room-right-side">
+
+
+
+
+
+<iframe width="580" height="900" src = "https://localhost:9001/demos/screen-sharing.html" allowfullscreen></iframe>
+      </div>
+</div>
+</div>
+
+
+</body>
+</html>
